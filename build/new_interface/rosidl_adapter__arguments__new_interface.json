@@ -1,0 +1,6 @@
+{
+  "package_name": "new_interface",
+  "non_idl_tuples": [
+    "/home/zp/ros2/sim/src/unitree-go2-ros2/new_interface:action/MoveRobot.action"
+  ]
+}

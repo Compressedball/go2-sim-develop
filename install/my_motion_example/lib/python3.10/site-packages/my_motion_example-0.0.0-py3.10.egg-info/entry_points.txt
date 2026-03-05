@@ -1,0 +1,3 @@
+[console_scripts]
+square_node = my_motion_example.square_node:main
+

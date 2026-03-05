@@ -1,0 +1,35 @@
+running egg_info
+creating ../../../build/my_motion_example/my_motion_example.egg-info
+writing ../../../build/my_motion_example/my_motion_example.egg-info/PKG-INFO
+writing dependency_links to ../../../build/my_motion_example/my_motion_example.egg-info/dependency_links.txt
+writing entry points to ../../../build/my_motion_example/my_motion_example.egg-info/entry_points.txt
+writing requirements to ../../../build/my_motion_example/my_motion_example.egg-info/requires.txt
+writing top-level names to ../../../build/my_motion_example/my_motion_example.egg-info/top_level.txt
+writing manifest file '../../../build/my_motion_example/my_motion_example.egg-info/SOURCES.txt'
+reading manifest file '../../../build/my_motion_example/my_motion_example.egg-info/SOURCES.txt'
+writing manifest file '../../../build/my_motion_example/my_motion_example.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/zp/ros2/sim/build/my_motion_example/build
+creating /home/zp/ros2/sim/build/my_motion_example/build/lib
+creating /home/zp/ros2/sim/build/my_motion_example/build/lib/my_motion_example
+copying my_motion_example/__init__.py -> /home/zp/ros2/sim/build/my_motion_example/build/lib/my_motion_example
+copying my_motion_example/square_node.py -> /home/zp/ros2/sim/build/my_motion_example/build/lib/my_motion_example
+running install
+running install_lib
+creating /home/zp/ros2/sim/install/my_motion_example/lib/python3.10/site-packages/my_motion_example
+copying /home/zp/ros2/sim/build/my_motion_example/build/lib/my_motion_example/__init__.py -> /home/zp/ros2/sim/install/my_motion_example/lib/python3.10/site-packages/my_motion_example
+copying /home/zp/ros2/sim/build/my_motion_example/build/lib/my_motion_example/square_node.py -> /home/zp/ros2/sim/install/my_motion_example/lib/python3.10/site-packages/my_motion_example
+byte-compiling /home/zp/ros2/sim/install/my_motion_example/lib/python3.10/site-packages/my_motion_example/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/zp/ros2/sim/install/my_motion_example/lib/python3.10/site-packages/my_motion_example/square_node.py to square_node.cpython-310.pyc
+running install_data
+creating /home/zp/ros2/sim/install/my_motion_example/share/ament_index
+creating /home/zp/ros2/sim/install/my_motion_example/share/ament_index/resource_index
+creating /home/zp/ros2/sim/install/my_motion_example/share/ament_index/resource_index/packages
+copying resource/my_motion_example -> /home/zp/ros2/sim/install/my_motion_example/share/ament_index/resource_index/packages
+copying package.xml -> /home/zp/ros2/sim/install/my_motion_example/share/my_motion_example
+running install_egg_info
+Copying ../../../build/my_motion_example/my_motion_example.egg-info to /home/zp/ros2/sim/install/my_motion_example/lib/python3.10/site-packages/my_motion_example-0.0.0-py3.10.egg-info
+running install_scripts
+Installing square_node script to /home/zp/ros2/sim/install/my_motion_example/lib/my_motion_example
+writing list of installed files to '/home/zp/ros2/sim/build/my_motion_example/install.log'

@@ -1,0 +1,9 @@
+/home/zp/ros2/sim/build/go2_config/CMakeFiles/uninstall.dir
+/home/zp/ros2/sim/build/go2_config/CMakeFiles/go2_config_uninstall.dir
+/home/zp/ros2/sim/build/go2_config/CMakeFiles/test.dir
+/home/zp/ros2/sim/build/go2_config/CMakeFiles/edit_cache.dir
+/home/zp/ros2/sim/build/go2_config/CMakeFiles/rebuild_cache.dir
+/home/zp/ros2/sim/build/go2_config/CMakeFiles/list_install_components.dir
+/home/zp/ros2/sim/build/go2_config/CMakeFiles/install.dir
+/home/zp/ros2/sim/build/go2_config/CMakeFiles/install/local.dir
+/home/zp/ros2/sim/build/go2_config/CMakeFiles/install/strip.dir

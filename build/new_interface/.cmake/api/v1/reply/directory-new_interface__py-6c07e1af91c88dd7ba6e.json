@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "new_interface__py",
+		"source" : "/home/zp/ros2/sim/build/new_interface/new_interface__py"
+	}
+}

@@ -1,0 +1,2 @@
+Invoking command in '/home/zp/ros2/sim/build/new_interface': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/zp/ros2/sim/src/unitree-go2-ros2/new_interface -DCMAKE_INSTALL_PREFIX=/home/zp/ros2/sim/install/new_interface
+Invoked command in '/home/zp/ros2/sim/build/new_interface' returned '1': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/zp/ros2/sim/src/unitree-go2-ros2/new_interface -DCMAKE_INSTALL_PREFIX=/home/zp/ros2/sim/install/new_interface

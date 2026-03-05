@@ -1,0 +1,5 @@
+[console_scripts]
+keyboard_control_node = go2_control.keyboard_control:main
+move_distance_client = go2_control.move_distance_client:main
+move_distance_server = go2_control.move_distance_server:main
+
