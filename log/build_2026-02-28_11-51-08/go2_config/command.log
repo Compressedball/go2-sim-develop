@@ -1,4 +1,0 @@
-Invoking command in '/home/zp/ros2/sim/build/go2_config': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/zp/ros2/sim/build/go2_config -- -j20 -l20
-Invoked command in '/home/zp/ros2/sim/build/go2_config' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/zp/ros2/sim/build/go2_config -- -j20 -l20
-Invoking command in '/home/zp/ros2/sim/build/go2_config': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/zp/ros2/sim/build/go2_config
-Invoked command in '/home/zp/ros2/sim/build/go2_config' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/zp/ros2/sim/build/go2_config

@@ -1,4 +1,0 @@
-Invoking command in '/home/zp/ros2/sim/build/champ_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/zp/ros2/sim/install/my_motion_example:/opt/ros/humble /usr/bin/cmake --build /home/zp/ros2/sim/build/champ_msgs -- -j20 -l20
-Invoked command in '/home/zp/ros2/sim/build/champ_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/zp/ros2/sim/install/my_motion_example:/opt/ros/humble /usr/bin/cmake --build /home/zp/ros2/sim/build/champ_msgs -- -j20 -l20
-Invoking command in '/home/zp/ros2/sim/build/champ_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/zp/ros2/sim/install/my_motion_example:/opt/ros/humble /usr/bin/cmake --install /home/zp/ros2/sim/build/champ_msgs
-Invoked command in '/home/zp/ros2/sim/build/champ_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/zp/ros2/sim/install/my_motion_example:/opt/ros/humble /usr/bin/cmake --install /home/zp/ros2/sim/build/champ_msgs
