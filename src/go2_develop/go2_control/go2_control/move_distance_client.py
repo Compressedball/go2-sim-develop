@@ -57,15 +57,19 @@ def main(args=None):
     rclpy.init(args=args)
 
     move_distance_client = MoveDistanceClient()
-    try:
+
+    import threading
+    def input_thread():
         while True:
             distance = float(input("请输入移动的距离"))
             try:
                 move_distance_client.send_goal(distance)
             except Exception as e:
                 move_distance_client.get_logger().error(f"发送目标失败: {e}")
-    except KeyboardInterrupt:
-        print("Shutting down client...")
-    finally:
-        move_distance_client.destroy_node()
-        rclpy.shutdown()
+
+    thread = threading.Thread(target=input_thread, daemon=True)
+    thread.start()
+
+    rclpy.spin(move_distance_client)
+    move_distance_client.destroy_node()
+    rclpy.shutdown()
