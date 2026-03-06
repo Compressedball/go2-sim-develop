@@ -54,8 +54,12 @@ class MoveDistanceServer(Node):
         feedback_msg = MoveRobot.Feedback()
         twist = Twist()
 
-        linear_speed = 0.3
-        angular_speed = 0.3
+        max_linear_speed = 0.5
+        min_linear_speed = 0.2
+        speed_rate = 0.5
+        max_angular_speed = 0.3
+        angular_rate = 1.5
+
 
         pos_tolerance = 0.02
         angle_tolerance = 0.1
@@ -76,13 +80,13 @@ class MoveDistanceServer(Node):
 
             if distance_remained < pos_tolerance:
                 break
-
-            if abs(yaw_error) > angle_tolerance:
+            
+            if abs(yaw_error) > math.pi / 2:
                 twist.linear.x = 0.0
-                twist.angular.z = angular_speed if yaw_error > 0 else -angular_speed
+                twist.angular.z = max_angular_speed if yaw_error > 0 else -max_angular_speed
             else:
-                twist.linear.x = linear_speed
-                twist.angular.z = 0.0
+                twist.linear.x = max(min_linear_speed, min(max_linear_speed, speed_rate * distance_remained))
+                twist.angular.z = max(-max_angular_speed, min(max_angular_speed, angular_rate * yaw_error))
 
             self.cmd_vel_publisher.publish(twist)
             sleep(0.1)
