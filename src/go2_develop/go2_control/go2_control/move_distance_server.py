@@ -6,6 +6,7 @@ from nav_msgs.msg import Odometry
 from geometry_msgs.msg import Twist
 from rclpy.action import ActionServer
 from rclpy.executors import MultiThreadedExecutor
+from go2_control.utils import euler_from_quaternion
 import math
 
 
@@ -29,6 +30,7 @@ class MoveDistanceServer(Node):
 
         self.current_x = 0.0
         self.current_y = 0.0
+        self.current_yam = 0.0
 
         self.get_logger().info('Move Distance Action Server has been started.')
 
@@ -37,37 +39,56 @@ class MoveDistanceServer(Node):
         self.current_x = msg.pose.pose.position.x
         self.current_y = msg.pose.pose.position.y
 
+        q = msg.pose.pose.orientation
+        yaw = euler_from_quaternion(q)
+        self.current_yam = yaw
+
     async def execute_callback(self, goal_handle):
         self.get_logger().info("Received goal request")
-        target_distance = goal_handle.request.distance
 
-        start_x = self.current_x
-        start_y = self.current_y
+        target_x = goal_handle.request.move_x + self.current_x
+        target_y = goal_handle.request.move_y + self.current_y
+
+        self.get_logger().info(f"Target position: ({target_x:.2f}, {target_y:.2f})")
 
         feedback_msg = MoveRobot.Feedback()
         twist = Twist()
 
-        speed = 0.5
-        tolerance = 0.02
+        linear_speed = 0.3
+        angular_speed = 0.3
+
+        pos_tolerance = 0.02
+        angle_tolerance = 0.1
 
         while rclpy.ok():
-            dx = self.current_x - start_x
-            dy = self.current_y - start_y
+            dx = target_x - self.current_x
+            dy = target_y - self.current_y
             # self.get_logger().info(f"Current distance moved: {dx:.2f} m {dy:.2f} m")
-            distance_moved = math.sqrt(dx*dx + dy*dy)
+            distance_remained = math.sqrt(dx*dx + dy*dy)
 
-            feedback_msg.current_distance = distance_moved
+            target_yaw = math.atan2(dy, dx)
+            yaw_error = target_yaw - self.current_yam
+            yaw_error = math.atan2(math.sin(yaw_error), math.cos(yaw_error))
+
+            feedback_msg.remained_distance = distance_remained
             goal_handle.publish_feedback(feedback_msg)
 
 
-            if distance_moved >= target_distance - tolerance:
+            if distance_remained < pos_tolerance:
                 break
 
-            twist.linear.x = speed
+            if abs(yaw_error) > angle_tolerance:
+                twist.linear.x = 0.0
+                twist.angular.z = angular_speed if yaw_error > 0 else -angular_speed
+            else:
+                twist.linear.x = linear_speed
+                twist.angular.z = 0.0
+
             self.cmd_vel_publisher.publish(twist)
             sleep(0.1)
 
         twist.linear.x = 0.0
+        twist.angular.z = 0.0
         self.cmd_vel_publisher.publish(twist)
 
         goal_handle.succeed()

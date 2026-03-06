@@ -1,8 +1,9 @@
 # Goal
-float32 distance
+float32 move_x
+float32 move_y
 ---
 # Result
 bool success
 ---
 # feedback
-float32 current_distance
+float32 remained_distance

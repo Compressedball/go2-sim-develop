@@ -17,9 +17,10 @@ class MoveDistanceClient(Node):
             'move_distance'
         )
 
-    def send_goal(self, distance):
+    def send_goal(self, move_x, move_y):
         goal_msg = MoveRobot.Goal()
-        goal_msg.distance = distance
+        goal_msg.move_x = move_x
+        goal_msg.move_y = move_y
 
         self._action_client.wait_for_server()
 
@@ -31,8 +32,8 @@ class MoveDistanceClient(Node):
         future.add_done_callback(self.goal_response_callback)
 
     def feedback_callback(self, feedback_msg):
-        current = feedback_msg.feedback.current_distance
-        self.get_logger().info(f"Moved: {current:.2f} m")
+        remained = feedback_msg.feedback.remained_distance
+        self.get_logger().info(f"Remained: {remained:.2f} m")
 
     def goal_response_callback(self, feedback_msg):
         goal_handle = feedback_msg.result()
@@ -61,9 +62,11 @@ def main(args=None):
     import threading
     def input_thread():
         while True:
-            distance = float(input("请输入移动的距离"))
+            move_x = float(input("请输入x轴移动的距离"))
+            move_y = float(input("请输入y轴移动的距离"))
+
             try:
-                move_distance_client.send_goal(distance)
+                move_distance_client.send_goal(move_x, move_y)
             except Exception as e:
                 move_distance_client.get_logger().error(f"发送目标失败: {e}")
 
